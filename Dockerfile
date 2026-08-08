@@ -1,8 +1,6 @@
 FROM ghcr.io/xtls/xray-core:latest
 
-COPY config.json /etc/xray/config.json.template
-COPY start.sh /start.sh
+COPY config.json /usr/local/etc/xray/config.json
 
-RUN chmod +x /start.sh
-
-ENTRYPOINT ["/start.sh"]
+ENTRYPOINT ["xray"]
+CMD ["run", "-c", "/usr/local/etc/xray/config.json"]
