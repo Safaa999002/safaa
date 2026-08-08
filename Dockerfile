@@ -1,0 +1,8 @@
+FROM ghcr.io/xtls/xray-core:latest
+
+COPY config.json /etc/xray/config.json.template
+COPY start.sh /start.sh
+
+RUN chmod +x /start.sh
+
+ENTRYPOINT ["/start.sh"]
